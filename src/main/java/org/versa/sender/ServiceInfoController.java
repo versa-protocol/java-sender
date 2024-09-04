@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Base64;
+
+
 @RestController
 public class ServiceInfoController {
 	@Value("${spring.application.name}")
@@ -31,6 +34,11 @@ public class ServiceInfoController {
 	public String send(@RequestBody Receipt newReceipt) { 
 		// TODO: accept transaction handles as well and regist the receipt
 		return newReceipt.getInvoiceNumber();
+	}
+	@PostMapping("/encrypt") 
+	public String encrypt(@RequestBody EncryptionTestPayload payload) { 
+		// TODO: accept transaction handles as well and regist the receipt
+		return Base64.getEncoder().encodeToString(Protocol.encrypt(payload.get_key(), payload.get_nonce(), payload.get_receipt()));
 	}
 
 	private String checkRegistry()
