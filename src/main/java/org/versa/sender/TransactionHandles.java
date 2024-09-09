@@ -4,10 +4,9 @@ package org.versa.sender;
 
 
 public class TransactionHandles {
-    public String customerEmail;
-    public String customerEmailDomain;
-    public String customerEmailUhash;
-    public String cardLastFour;
-    public String cardBin;
+    public String customer_email;
+    public String customer_email_domain;
+    public String card_last_four;
+    public String card_bin;
 };
 

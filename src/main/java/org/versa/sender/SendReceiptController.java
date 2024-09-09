@@ -81,7 +81,7 @@ public class SendReceiptController {
                         ReceiptRegistrationResponse.class
                     );
 					// Log the success status
-					System.out.println("Successfully registered receipt with registry: " + data.getReceiptId());
+					System.out.println("Successfully registered receipt with registry: " + data.receipt_id);
                 } else {
                     // Log the failure status
                     System.out.println("Received error status from registry: " + response.getStatusCode());
