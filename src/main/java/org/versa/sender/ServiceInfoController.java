@@ -1,7 +1,6 @@
 package org.versa.sender;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,11 +29,6 @@ public class ServiceInfoController {
 		return checkRegistry();
 	}
 
-	@PostMapping("/send") 
-	public String send(@RequestBody Receipt newReceipt) { 
-		// TODO: accept transaction handles as well and regist the receipt
-		return newReceipt.getInvoiceNumber();
-	}
 	@PostMapping("/encrypt") 
 	public String encrypt(@RequestBody EncryptionTestPayload payload) { 
 		// TODO: accept transaction handles as well and regist the receipt

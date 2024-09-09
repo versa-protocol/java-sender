@@ -8,7 +8,6 @@ import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 
-
 public class Protocol {
 
     public static byte[] encrypt(
@@ -32,7 +31,5 @@ public class Protocol {
             e.printStackTrace();
             return new ByteArrayOutputStream( ).toByteArray();
         }
-
     }
-
 }
