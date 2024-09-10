@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.security.Security;
 
-
 @SpringBootApplication
 public class SenderApplication {
 
