@@ -29,12 +29,7 @@ public class ServiceInfoController {
 		return checkRegistry();
 	}
 
-	@PostMapping("/encrypt") 
-	public String encrypt(@RequestBody EncryptionTestPayload payload) { 
-		// TODO: accept transaction handles as well and regist the receipt
-		return Base64.getEncoder().encodeToString(Protocol.encrypt(payload.get_key(), payload.get_nonce(), payload.get_receipt()));
-	}
-
+	/// Mirrors the service info for your active registry set by versa.registry.url
 	private String checkRegistry()
 	{
 		RestTemplate restTemplate = new RestTemplate();
