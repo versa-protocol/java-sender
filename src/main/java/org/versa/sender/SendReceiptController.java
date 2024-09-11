@@ -45,10 +45,11 @@ public class SendReceiptController {
       return new ResponseEntity<>("Missing receipt_json", HttpStatus.BAD_REQUEST);
     }
 
-    ReceiptRegistrationRequest registrationPayload = new ReceiptRegistrationRequest();
-    registrationPayload.schema_version = payload.schema_version;
-    registrationPayload.handles = payload.transaction_handles;
-    registrationPayload.transaction_id = payload.transaction_id;
+    ReceiptRegistrationRequest registrationPayload = new ReceiptRegistrationRequest(
+      payload.schema_version,
+      payload.transaction_handles,
+      payload.transaction_id
+    );
 
     // make post request to registry
     RestTemplate restTemplate = new RestTemplate();

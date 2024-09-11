@@ -14,10 +14,7 @@ public class Protocol {
       byte[] keyBytes,
       byte[] nonce,
       String input) {
-    Key key;
-
-    key = new SecretKeySpec(keyBytes, "AES");
-
+    Key key = new SecretKeySpec(keyBytes, "AES");
     try {
       Cipher cipher = Cipher.getInstance("AES/GCM-SIV/NoPadding", "BC");
       // GCMParameterSpec for AES-GCM-SIV with IV and tag length
