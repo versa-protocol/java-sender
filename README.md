@@ -12,9 +12,12 @@ This is a Java implementation of the Versa Sender. It is a simple program that d
 Below you'll find instructions for testing this sending client against the Versa sandbox. With production credentials, you could deploy this service on your own stack to forward receipts through the Versa network.
 
 ### Configure the application by setting the following environment variables:
+```sh
+# application.properties
 versa.registry.url=https://registry.versa.org
 versa.client.client_id=YOUR_VERSA_CLIENT_ID
 versa.client.client_secret=YOUR_VERSA_CLIENT_SECRET
+```
 
 ### Sending a receipt to the firehose
 
