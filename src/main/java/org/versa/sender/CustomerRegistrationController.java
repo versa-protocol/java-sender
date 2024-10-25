@@ -37,7 +37,7 @@ public class CustomerRegistrationController {
   }
 
   @PostMapping("/handle")
-  public ResponseEntity<String> register_customer_reference(@RequestBody CustomerReferencePayload payload) {
+  public ResponseEntity<String> register_customer_reference(@RequestBody CustomerRegistrationRequest payload) {
 
     if (payload.handle == null) {
       return new ResponseEntity<>("Missing handle", HttpStatus.BAD_REQUEST);
@@ -67,7 +67,7 @@ public class CustomerRegistrationController {
     headers.set("Content-Type", "application/json");
 
     // Create the HTTP entity
-    HttpEntity<CustomerReferencePayload> entity = new HttpEntity<>(payload, headers);
+    HttpEntity<CustomerRegistrationRequest> entity = new HttpEntity<>(payload, headers);
 
     try {
       // Make the HTTP POST request
@@ -85,7 +85,7 @@ public class CustomerRegistrationController {
   }
 
   @DeleteMapping("/handle")
-  public ResponseEntity<String> deregister_customer_reference(@RequestBody CustomerReferencePayload payload) {
+  public ResponseEntity<String> deregister_customer_reference(@RequestBody CustomerRegistrationRequest payload) {
 
     if (payload.handle == null) {
       return new ResponseEntity<>("Missing handle", HttpStatus.BAD_REQUEST);
@@ -115,7 +115,7 @@ public class CustomerRegistrationController {
     headers.set("Content-Type", "application/json");
 
     // Create the HTTP entity
-    HttpEntity<CustomerReferencePayload> entity = new HttpEntity<>(payload, headers);
+    HttpEntity<CustomerRegistrationRequest> entity = new HttpEntity<>(payload, headers);
 
     try {
       // Make the HTTP DELETE request
