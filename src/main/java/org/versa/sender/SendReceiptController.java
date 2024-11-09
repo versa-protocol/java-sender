@@ -92,12 +92,13 @@ public class SendReceiptController {
           Envelope envelope = new Envelope(nonce, encrypted_data);
           ReceiverPayload receiverPayload = new ReceiverPayload(versaClientId, data.receipt_id,
               data.transaction_id, envelope);
+          WebhookEvent webhookEvent = new WebhookEvent(receiverPayload);
 
           /// Post to the receiver address with an HMAC verification token from HMACUtil
           // Make the HTTP POST request
           String receiverUrl = receiver.address;
           String hmac = HmacUtil.generateHmac(receiver.secret,
-              objectMapper.writeValueAsString(receiverPayload).getBytes(StandardCharsets.UTF_8));
+              objectMapper.writeValueAsString(webhookEvent).getBytes(StandardCharsets.UTF_8));
 
           // Set headers
           HttpHeaders receiverHeaders = new HttpHeaders();
@@ -106,7 +107,7 @@ public class SendReceiptController {
           receiverHeaders.set("X-Request-Signature", hmac);
 
           // Create the HTTP entity
-          HttpEntity<ReceiverPayload> receiverEntity = new HttpEntity<>(receiverPayload, receiverHeaders);
+          HttpEntity<WebhookEvent> receiverEntity = new HttpEntity<>(webhookEvent, receiverHeaders);
 
           try {
             // Make the HTTP POST request
