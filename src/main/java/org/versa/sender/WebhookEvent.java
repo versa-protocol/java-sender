@@ -7,11 +7,13 @@ package org.versa.sender;
  */
 public class WebhookEvent {
   public String event;
+  public String event_id;
   public ReceiverPayload data;
 
   // constructor
-  public WebhookEvent(ReceiverPayload data) {
+  public WebhookEvent(ReceiverPayload data, String event_id) {
     this.event = "receipt";
+    this.event_id = event_id;
     this.data = data;
   }
 }

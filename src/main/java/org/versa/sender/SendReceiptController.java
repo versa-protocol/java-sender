@@ -92,7 +92,7 @@ public class SendReceiptController {
           Envelope envelope = new Envelope(nonce, encrypted_data);
           ReceiverPayload receiverPayload = new ReceiverPayload(versaClientId, data.receipt_id,
               data.transaction_id, envelope);
-          WebhookEvent webhookEvent = new WebhookEvent(receiverPayload);
+          WebhookEvent webhookEvent = new WebhookEvent(receiverPayload, data.event_id);
 
           /// Post to the receiver address with an HMAC verification token from HMACUtil
           // Make the HTTP POST request
