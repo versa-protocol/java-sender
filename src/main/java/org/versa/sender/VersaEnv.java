@@ -1,5 +1,5 @@
 package org.versa.sender;
 
-public enum VersaEnv {
+public enum VersaMode {
   prod, test
 }
