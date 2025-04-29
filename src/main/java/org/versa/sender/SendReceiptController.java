@@ -92,11 +92,11 @@ public class SendReceiptController {
           Envelope envelope = new Envelope(nonce, encrypted_data);
           ReceiverPayload receiverPayload = new ReceiverPayload(versaClientId, data.receipt_id,
               data.transaction_id, envelope);
-          WebhookEvent webhookEvent = new WebhookEvent(receiverPayload, data.event_id);
+          WebhookEvent webhookEvent = new WebhookEvent(receiverPayload, receiver.event_id);
 
-          /// Post to the receiver address with an HMAC verification token from HMACUtil
+          /// Post to the receiver endpoint_url with an HMAC verification token from HMACUtil
           // Make the HTTP POST request
-          String receiverUrl = receiver.address;
+          String receiverUrl = receiver.endpoint_url;
           String hmac = HmacUtil.generateHmac(receiver.secret,
               objectMapper.writeValueAsString(webhookEvent).getBytes(StandardCharsets.UTF_8));
 
@@ -119,7 +119,7 @@ public class SendReceiptController {
             // Check for successful response status
             if (receiverResponse.getStatusCode() == HttpStatus.OK) {
               // Log the success status
-              System.out.println("Successfully sent receipt to receiver: " + receiver.address);
+              System.out.println("Successfully sent receipt to receiver: " + receiver.endpoint_url);
             } else {
               // Log the failure status
               System.out.println(
