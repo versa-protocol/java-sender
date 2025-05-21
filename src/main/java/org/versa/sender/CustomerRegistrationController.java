@@ -45,8 +45,8 @@ public class CustomerRegistrationController {
     if (payload.handle_type == null) {
       return new ResponseEntity<>("Missing handle_type", HttpStatus.BAD_REQUEST);
     }
-    if (payload.receiver_client_id == null) {
-      return new ResponseEntity<>("Missing receiver_client_id", HttpStatus.BAD_REQUEST);
+    if (payload.receiver_org_id == null) {
+      return new ResponseEntity<>("Missing receiver_org_id", HttpStatus.BAD_REQUEST);
     }
     if (payload.handle_type != "customer_email" && payload.handle_type != "customer_email_domain") {
       return new ResponseEntity<>("Invalid handle_type", HttpStatus.BAD_REQUEST);
@@ -93,8 +93,8 @@ public class CustomerRegistrationController {
     if (payload.handle_type == null) {
       return new ResponseEntity<>("Missing handle_type", HttpStatus.BAD_REQUEST);
     }
-    if (payload.receiver_client_id == null) {
-      return new ResponseEntity<>("Missing receiver_client_id", HttpStatus.BAD_REQUEST);
+    if (payload.receiver_org_id == null) {
+      return new ResponseEntity<>("Missing receiver_org_id", HttpStatus.BAD_REQUEST);
     }
     if (payload.handle_type != "customer_email" && payload.handle_type != "customer_email_domain") {
       return new ResponseEntity<>("Invalid handle_type", HttpStatus.BAD_REQUEST);

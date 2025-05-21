@@ -8,5 +8,5 @@ package org.versa.sender;
 public class CustomerRegistrationRequest {
   public String handle;
   public String handle_type;
-  public String receiver_client_id;
+  public String receiver_org_id;
 }
