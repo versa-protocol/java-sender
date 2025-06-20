@@ -8,6 +8,4 @@ public class ReceiptRegistrationResponse {
   public String transaction_id;
   public List<Receiver> receivers;
   public String encryption_key;
-  /// DEPRECATED: use 'mode' instead
-  public String env;
 }

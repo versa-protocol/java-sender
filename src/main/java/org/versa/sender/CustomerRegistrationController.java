@@ -48,7 +48,11 @@ public class CustomerRegistrationController {
     if (payload.receiver_org_id == null) {
       return new ResponseEntity<>("Missing receiver_org_id", HttpStatus.BAD_REQUEST);
     }
-    if (payload.handle_type != "customer_email" && payload.handle_type != "customer_email_domain") {
+    if (payload.handle_type != "customer_email"
+      && payload.handle_type != "customer_email_domain"
+      && payload.handle_type != "merchant_group_code"
+      && payload.handle_type != "merchant_user_code"
+    ) {
       return new ResponseEntity<>("Invalid handle_type", HttpStatus.BAD_REQUEST);
     }
 
@@ -96,7 +100,11 @@ public class CustomerRegistrationController {
     if (payload.receiver_org_id == null) {
       return new ResponseEntity<>("Missing receiver_org_id", HttpStatus.BAD_REQUEST);
     }
-    if (payload.handle_type != "customer_email" && payload.handle_type != "customer_email_domain") {
+    if (payload.handle_type != "customer_email"
+      && payload.handle_type != "customer_email_domain"
+      && payload.handle_type != "merchant_group_code"
+      && payload.handle_type != "merchant_user_code"
+    ) {
       return new ResponseEntity<>("Invalid handle_type", HttpStatus.BAD_REQUEST);
     }
 
