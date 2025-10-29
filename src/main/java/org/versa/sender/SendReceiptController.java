@@ -47,6 +47,7 @@ public class SendReceiptController {
 
     ReceiptRegistrationRequest registrationPayload = new ReceiptRegistrationRequest(
       payload.schema_version,
+      "receipt",
       payload.transaction_handles,
       payload.transaction_id
     );
